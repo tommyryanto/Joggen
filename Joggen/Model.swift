@@ -12,6 +12,8 @@ let menuData: [HomeMenu] = [HomeMenu(title: "Total Duration", record: 10, total:
 HomeMenu(title: "Jogging", record: 5, total: "10", min: true),
 HomeMenu(title: "Walking", record: 5, total: "5", min: true)]
 
+var weekHistory: [WeekHistory] = [WeekHistory(session: 3, distance: 4, duration: 1, week: 2)]
+
 struct HomeMenu {
     var title: String
     var record: Int
@@ -22,5 +24,19 @@ struct HomeMenu {
         self.record = record
         self.total = total
         self.min = min
+    }
+}
+
+struct WeekHistory {
+    var session: Int
+    var distance: Float
+    var duration: Float
+    var week: Int
+    
+    init(session: Int, distance: Float, duration: Float, week: Int) {
+        self.session = session
+        self.distance = distance
+        self.duration = duration
+        self.week = week
     }
 }

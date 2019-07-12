@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16B91D1022D788DF0054655D /* WeekHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B91D0F22D788DF0054655D /* WeekHistoryTableViewCell.swift */; };
 		16E0B6F322D57F3D0008B224 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0B6F222D57F3D0008B224 /* AppDelegate.swift */; };
 		16E0B6F522D57F3D0008B224 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0B6F422D57F3D0008B224 /* ViewController.swift */; };
 		16E0B6F822D57F3D0008B224 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E0B6F622D57F3D0008B224 /* Main.storyboard */; };
@@ -15,9 +16,11 @@
 		16E0B70022D57F3E0008B224 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E0B6FE22D57F3E0008B224 /* LaunchScreen.storyboard */; };
 		16E0B70822D5D9F20008B224 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0B70722D5D9F20008B224 /* HomeViewCell.swift */; };
 		16E0B70B22D5DDCC0008B224 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0B70A22D5DDCC0008B224 /* Model.swift */; };
+		16E0B70D22D606C90008B224 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0B70C22D606C90008B224 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16B91D0F22D788DF0054655D /* WeekHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		16E0B6EF22D57F3D0008B224 /* Joggen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joggen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E0B6F222D57F3D0008B224 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16E0B6F422D57F3D0008B224 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		16E0B70122D57F3E0008B224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16E0B70722D5D9F20008B224 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		16E0B70A22D5DDCC0008B224 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		16E0B70C22D606C90008B224 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				16E0B6F222D57F3D0008B224 /* AppDelegate.swift */,
-				16E0B6F422D57F3D0008B224 /* ViewController.swift */,
+				16E0B70E22D606CE0008B224 /* VC */,
 				16E0B70A22D5DDCC0008B224 /* Model.swift */,
 				16E0B6F622D57F3D0008B224 /* Main.storyboard */,
 				16E0B70922D5D9F80008B224 /* View Cell */,
@@ -76,9 +80,19 @@
 		16E0B70922D5D9F80008B224 /* View Cell */ = {
 			isa = PBXGroup;
 			children = (
+				16B91D0F22D788DF0054655D /* WeekHistoryTableViewCell.swift */,
 				16E0B70722D5D9F20008B224 /* HomeViewCell.swift */,
 			);
 			path = "View Cell";
+			sourceTree = "<group>";
+		};
+		16E0B70E22D606CE0008B224 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				16E0B6F422D57F3D0008B224 /* ViewController.swift */,
+				16E0B70C22D606C90008B224 /* HistoryViewController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +170,9 @@
 				16E0B6F522D57F3D0008B224 /* ViewController.swift in Sources */,
 				16E0B70822D5D9F20008B224 /* HomeViewCell.swift in Sources */,
 				16E0B6F322D57F3D0008B224 /* AppDelegate.swift in Sources */,
+				16B91D1022D788DF0054655D /* WeekHistoryTableViewCell.swift in Sources */,
 				16E0B6FB22D57F3D0008B224 /* Joggen.xcdatamodeld in Sources */,
+				16E0B70D22D606C90008B224 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +328,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TommyR.Joggen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -330,7 +346,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TommyR.Joggen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
