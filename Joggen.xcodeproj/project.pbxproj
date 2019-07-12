@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		166E2E9D22D825C2006B621C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E2E9B22D825C2006B621C /* Home.storyboard */; };
+		166E2E9F22D825FC006B621C /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E2E9E22D825FC006B621C /* History.storyboard */; };
+		166E2EA222D8326D006B621C /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E2EA122D8326D006B621C /* DataHandler.swift */; };
 		16B91D1022D788DF0054655D /* WeekHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B91D0F22D788DF0054655D /* WeekHistoryTableViewCell.swift */; };
 		16E0B6F322D57F3D0008B224 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0B6F222D57F3D0008B224 /* AppDelegate.swift */; };
 		16E0B6F522D57F3D0008B224 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E0B6F422D57F3D0008B224 /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		166E2E9C22D825C2006B621C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Joggen/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		166E2E9E22D825FC006B621C /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		166E2EA122D8326D006B621C /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		16B91D0F22D788DF0054655D /* WeekHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		16E0B6EF22D57F3D0008B224 /* Joggen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Joggen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E0B6F222D57F3D0008B224 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		166E2EA022D8260E006B621C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				16E0B6F622D57F3D0008B224 /* Main.storyboard */,
+				166E2E9E22D825FC006B621C /* History.storyboard */,
+				166E2E9B22D825C2006B621C /* Home.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		16E0B6E622D57F3D0008B224 = {
 			isa = PBXGroup;
 			children = (
@@ -67,12 +83,13 @@
 				16E0B6F222D57F3D0008B224 /* AppDelegate.swift */,
 				16E0B70E22D606CE0008B224 /* VC */,
 				16E0B70A22D5DDCC0008B224 /* Model.swift */,
-				16E0B6F622D57F3D0008B224 /* Main.storyboard */,
+				166E2EA022D8260E006B621C /* Storyboard */,
 				16E0B70922D5D9F80008B224 /* View Cell */,
 				16E0B6FC22D57F3E0008B224 /* Assets.xcassets */,
 				16E0B6FE22D57F3E0008B224 /* LaunchScreen.storyboard */,
 				16E0B70122D57F3E0008B224 /* Info.plist */,
 				16E0B6F922D57F3D0008B224 /* Joggen.xcdatamodeld */,
+				166E2EA122D8326D006B621C /* DataHandler.swift */,
 			);
 			path = Joggen;
 			sourceTree = "<group>";
@@ -156,6 +173,8 @@
 				16E0B70022D57F3E0008B224 /* LaunchScreen.storyboard in Resources */,
 				16E0B6FD22D57F3E0008B224 /* Assets.xcassets in Resources */,
 				16E0B6F822D57F3D0008B224 /* Main.storyboard in Resources */,
+				166E2E9F22D825FC006B621C /* History.storyboard in Resources */,
+				166E2E9D22D825C2006B621C /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +189,7 @@
 				16E0B6F522D57F3D0008B224 /* ViewController.swift in Sources */,
 				16E0B70822D5D9F20008B224 /* HomeViewCell.swift in Sources */,
 				16E0B6F322D57F3D0008B224 /* AppDelegate.swift in Sources */,
+				166E2EA222D8326D006B621C /* DataHandler.swift in Sources */,
 				16B91D1022D788DF0054655D /* WeekHistoryTableViewCell.swift in Sources */,
 				16E0B6FB22D57F3D0008B224 /* Joggen.xcdatamodeld in Sources */,
 				16E0B70D22D606C90008B224 /* HistoryViewController.swift in Sources */,
@@ -179,6 +199,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		166E2E9B22D825C2006B621C /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				166E2E9C22D825C2006B621C /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
 		16E0B6F622D57F3D0008B224 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

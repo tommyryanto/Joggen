@@ -8,11 +8,13 @@
 
 import Foundation
 
+
 let menuData: [HomeMenu] = [HomeMenu(title: "Total Duration", record: 10, total: "90", min: true), HomeMenu(title: "Session", record: 1, total: "3x", min: false),
 HomeMenu(title: "Jogging", record: 5, total: "10", min: true),
 HomeMenu(title: "Walking", record: 5, total: "5", min: true)]
 
-var weekHistory: [WeekHistory] = [WeekHistory(session: 3, distance: 4, duration: 1, week: 2)]
+//var weekHistory: [WeekHistory] = [WeekHistory(session: 3, distance: 4, duration: 1, week: 2)]
+var weekHistory: [Target] = []
 
 struct HomeMenu {
     var title: String

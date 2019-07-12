@@ -16,7 +16,6 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
