@@ -27,12 +27,20 @@ class DataHandler {
         target.duration = duration
         target.id = id
         
+        let week = Weeks(context: context)
+        week.id = id
+        week.session_count = session_count
+        week.date_start = date
+        
+        target.week = week
+        
         //masih error
+        /*
         if let week = target.week {
             week.id = id
             week.session_count = session_count
             week.date_start = date
-        }
+        }*/
         
         do {
             try context.save()
@@ -52,9 +60,18 @@ class DataHandler {
         achived.jog_interval = jog_interval
         achived.walk_interval = walk_interval
         achived.distance = distance
+        
+        let week = Weeks(context: context)
+        week.id = id
+        week.session_count = session_count
+        week.date_start = date_start
+        
+        achived.week = week
+        
+        /*
         achived.week?.id = id
         achived.week?.session_count = session_count
-        achived.week?.date_start = date_start
+        achived.week?.date_start = date_start*/
         
         do {
             try context.save()
@@ -69,7 +86,7 @@ class DataHandler {
         
         do {
             target = try getContext().fetch(Target.fetchRequest())
-            print("retrieved target data success")
+            print("retrieved \((target?.count)!) target data success")
             return target
         } catch {
             print("retrieved target data failed")
@@ -82,7 +99,7 @@ class DataHandler {
         
         do {
             achived = try getContext().fetch(Achived.fetchRequest())
-            print("retrieved achived data success")
+            print("retrieved \((achived?.count)!) achived data success")
             return achived
         } catch {
             print("retrieved achived data failed")
