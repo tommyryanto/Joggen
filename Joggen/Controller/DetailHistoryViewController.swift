@@ -40,7 +40,6 @@ class DetailHistoryViewController: UIViewController {
                     showData.append(achived![i])
                 }
             }
-            print(showData.count)
         }
     }
     
@@ -56,8 +55,6 @@ extension DetailHistoryViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return showData.count
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 190
