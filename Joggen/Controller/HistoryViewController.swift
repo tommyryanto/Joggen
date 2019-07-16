@@ -27,10 +27,10 @@ class HistoryViewController: UIViewController {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        /*let dayComp = DateComponents(day: -9)
-        let date = Calendar.current.date(byAdding: dayComp, to: Date())*/
+        let dayComp = DateComponents(day: -9)
+        let date = Calendar.current.date(byAdding: dayComp, to: Date())
         
-        //DataHandler.saveTarget(date: date!, distance: 1, session_per_week: 1, duration: 1, id: 3, session_count: 3)
+        DataHandler.saveTarget(date: date!, distance: 1, session_per_week: 1, duration: 1, id: 3, session_count: 3, jog_interval: 10, walk_interval: 10)
         
         /*let target = DataHandler.retrieveTarget()
         
@@ -57,16 +57,20 @@ class HistoryViewController: UIViewController {
         let date = Calendar.current.date(byAdding: dayComp, to: Date())
         if statusGoal.selectedSegmentIndex == 0 {
             //ongoing
-            for i in 0...target!.count - 1 {
-                if (target?[i].week!.date_start)! >= date! {
-                    weekHistory.append(target![i])
+            if !target!.isEmpty {
+                for i in 0...target!.count - 1 {
+                    if (target?[i].week!.date_start)! >= date! {
+                        weekHistory.append(target![i])
+                    }
                 }
             }
         } else {
             //completed
-            for i in 0...target!.count - 1 {
-                if (target?[i].week!.date_start)! < date! {
-                    weekHistory.append(target![i])
+            if !target!.isEmpty{
+                for i in 0...target!.count - 1 {
+                    if (target?[i].week!.date_start)! < date! {
+                        weekHistory.append(target![i])
+                    }
                 }
             }
         }
