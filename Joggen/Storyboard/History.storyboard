@@ -141,6 +141,9 @@
                                     <constraint firstAttribute="width" constant="170" id="uWN-yC-jmR"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="6zA-Se-wQF" kind="show" id="Zjc-um-ZcZ"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZhD-c3-g2K">
                                 <rect key="frame" x="109.5" y="88" width="195" height="29"/>
@@ -310,6 +313,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZ8-ei-MG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2715.9420289855075" y="831.69642857142856"/>
+        </scene>
+        <!--GoalsForm-->
+        <scene sceneID="Lqr-v1-RYC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GoalsForm" id="6zA-Se-wQF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhd-gF-e9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2638" y="1280"/>
         </scene>
         <!--Item-->
         <scene sceneID="b9P-0F-424">
