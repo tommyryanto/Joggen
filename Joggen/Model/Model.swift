@@ -13,6 +13,8 @@ let menuData: [HomeMenu] = [HomeMenu(title: "Total Duration", record: 10, total:
 HomeMenu(title: "Jogging", record: 5, total: "10", min: true),
 HomeMenu(title: "Walking", record: 5, total: "5", min: true)]
 
+var targetGoals:[WeekHistory] = [WeekHistory(session: 3, distance: 4, duration: 1, week: 2), WeekHistory(session: 2, distance: 3, duration: 20, week: 1)]
+
 //var weekHistory: [WeekHistory] = [WeekHistory(session: 3, distance: 4, duration: 1, week: 2)]
 var weekHistory: [Target] = []
 
