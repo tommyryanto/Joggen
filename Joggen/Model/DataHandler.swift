@@ -17,7 +17,7 @@ class DataHandler {
         return appDel.persistentContainer.viewContext
     }
     
-    class func saveTarget(date: Date, distance: Float, session_per_week: Int32, duration: Int32, id: Int16, session_count: Int32) {
+    class func saveTarget(date: Date, distance: Float, session_per_week: Int32, duration: Int32, id: Int16, session_count: Int32, jog_interval: Int32, walk_interval: Int32) {
         let context = getContext()
         
         let target = Target(context: context)
@@ -26,6 +26,8 @@ class DataHandler {
         target.session_per_week = session_per_week
         target.duration = duration
         target.id = id
+        target.jog_interval = jog_interval
+        target.walk_interval = walk_interval
         
         let week = Weeks(context: context)
         week.id = id

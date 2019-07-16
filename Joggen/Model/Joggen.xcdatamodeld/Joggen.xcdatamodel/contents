@@ -14,7 +14,9 @@
         <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="jog_interval" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="session_per_week" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="walk_interval" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="week" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weeks" inverseName="week" inverseEntity="Weeks" syncable="YES"/>
     </entity>
     <entity name="Weeks" representedClassName="Weeks" syncable="YES" codeGenerationType="class">
@@ -25,7 +27,7 @@
     </entity>
     <elements>
         <element name="Achived" positionX="-757.84375" positionY="14.20703125" width="128" height="150"/>
-        <element name="Target" positionX="-149.76953125" positionY="25.23046875" width="128" height="133"/>
+        <element name="Target" positionX="-149.76953125" positionY="25.23046875" width="128" height="165"/>
         <element name="Weeks" positionX="-445.67578125" positionY="341.87890625" width="128" height="103"/>
     </elements>
 </model>

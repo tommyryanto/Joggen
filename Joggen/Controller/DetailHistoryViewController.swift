@@ -18,7 +18,7 @@ class DetailHistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(week?.distance)
+        print((week?.distance)!)
         
         /*DataHandler.saveAchived(calories: 40, duration: 25, id: 1, jog_interval: 15, walk_interval: 10, distance: 3, session_count: 2, date_start: Date())
         DataHandler.saveAchived(calories: 25, duration: 30, id: 1, jog_interval: 10, walk_interval: 20, distance: 3, session_count: 2, date_start: Date())

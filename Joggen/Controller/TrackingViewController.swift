@@ -24,6 +24,7 @@ class TrackingViewController: UIViewController {
     var id: Int16?
     var jog_interval: Int32?
     var walk_interval: Int32?
+    var session_count: Int32?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,7 @@ extension TrackingViewController {
     }
     
     func saveMotionData() {
+        DataHandler.saveAchived(calories: calories!, duration: duration!, id: id!, jog_interval: jog_interval!, walk_interval: walk_interval!, distance: distance!, session_count: session_count!, date_start: Date())
     }
 }
 

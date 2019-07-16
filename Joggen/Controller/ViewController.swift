@@ -17,10 +17,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        print(UserDefaults.standard.integer(forKey: "week"))
         
-        // Mengubah Week sesuai dengan minggu ke-X dari pertama kali digunakan (bisa pakai count data di db)
-        homeNavigationBar.title = "Week 1"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Week \(UserDefaults.standard.integer(forKey: "week"))"
+        
+        // Mengubah Week sesuai dengan minggu ke-X dari pertama kali digunakan (bisa pakai count data di db) 
         
         startButton.layer.borderWidth = 2.5
         startButton.layer.borderColor = UIColor(red: 65/255, green: 146/255, blue: 123/255, alpha: 1).cgColor
