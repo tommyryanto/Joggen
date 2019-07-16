@@ -10,6 +10,7 @@
 		166E2E9D22D825C2006B621C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E2E9B22D825C2006B621C /* Home.storyboard */; };
 		166E2E9F22D825FC006B621C /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E2E9E22D825FC006B621C /* History.storyboard */; };
 		166E2EA222D8326D006B621C /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E2EA122D8326D006B621C /* DataHandler.swift */; };
+		166F349922DC49E5008D362F /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F349822DC49E5008D362F /* TrackingViewController.swift */; };
 		1689FD1B22DC33C60098F04C /* DetailHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689FD1A22DC33C60098F04C /* DetailHistoryTableViewCell.swift */; };
 		16B8A0CE22DC226A00A023A1 /* DetailHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B8A0CD22DC226A00A023A1 /* DetailHistoryViewController.swift */; };
 		16B8A0D022DC22D400A023A1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B8A0CF22DC22D400A023A1 /* HistoryViewController.swift */; };
@@ -28,6 +29,7 @@
 		166E2E9C22D825C2006B621C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Joggen/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		166E2E9E22D825FC006B621C /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		166E2EA122D8326D006B621C /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		166F349822DC49E5008D362F /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		1689FD1A22DC33C60098F04C /* DetailHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		16B8A0CD22DC226A00A023A1 /* DetailHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHistoryViewController.swift; sourceTree = "<group>"; };
 		16B8A0CF22DC22D400A023A1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		16E0B70E22D606CE0008B224 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				166F349822DC49E5008D362F /* TrackingViewController.swift */,
 				16B8A0CF22DC22D400A023A1 /* HistoryViewController.swift */,
 				16B8A0CD22DC226A00A023A1 /* DetailHistoryViewController.swift */,
 				16E0B6F422D57F3D0008B224 /* ViewController.swift */,
@@ -201,6 +204,7 @@
 			files = (
 				16E0B70B22D5DDCC0008B224 /* Model.swift in Sources */,
 				16E0B6F522D57F3D0008B224 /* ViewController.swift in Sources */,
+				166F349922DC49E5008D362F /* TrackingViewController.swift in Sources */,
 				1689FD1B22DC33C60098F04C /* DetailHistoryTableViewCell.swift in Sources */,
 				16E0B70822D5D9F20008B224 /* HomeViewCell.swift in Sources */,
 				16E0B6F322D57F3D0008B224 /* AppDelegate.swift in Sources */,
