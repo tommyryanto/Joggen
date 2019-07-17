@@ -78,10 +78,64 @@ class GoalsFormViewController: UIViewController {
         print(week)
     }
     
+    
+    @IBAction func doneJogging(_ sender: Any) {
+        generateBar()
+    }
+    
+    @IBAction func doneWalking(_ sender: Any) {
+        generateBar()
+    }
+    
+    
     @IBAction func saveBtnPressed(_ sender: UIBarButtonItem) {
         //var startDate : Date
-        
         saveData()
+    }
+    
+    func generateBar() {
+        intervalType = []
+        interval = []
+        
+        let duration = Int(durationTxt.text!)!
+        calculateInterval(duration: duration, jogging: Int(intervalJogTxt.text!)!, walk: Int(intervalWalkTxt.text!)!)
+        print("")
+        for index in 0..<interval.count
+        {
+            print(String(interval[index]) + " --- " + intervalType[index])
+        }
+        
+        var bar: [UIView] = []
+        var x, width : CGFloat
+        let y: CGFloat = 0
+        let fullWidth: CGFloat = 350, fullHeight: CGFloat = 30
+        for index in 0..<interval.count
+        {
+            if index == 0
+            {
+                x = 0
+            }
+            else
+            {
+                x = bar[index-1].frame.maxX
+            }
+            
+            width = CGFloat(interval[index])/CGFloat(duration) * fullWidth
+            
+            let newBar = UIView(frame: CGRect(x: x, y: y, width: width, height: fullHeight))
+            
+            if intervalType[index] == "Walk"
+            {
+                newBar.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.2196078431, blue: 0.168627451, alpha: 1)
+            }
+            else
+            {
+                newBar.backgroundColor = #colorLiteral(red: 1, green: 0.8666666667, blue: 0.3058823529, alpha: 1)
+            }
+            
+            barView.addSubview(newBar)
+            bar.append(newBar)
+        }
     }
     
     @objc func donePressed()
@@ -136,48 +190,7 @@ class GoalsFormViewController: UIViewController {
         }
     }
     @IBAction func generatePressed(_ sender: UIButton) {
-        intervalType = []
-        interval = []
-        
-        let duration = Int(durationTxt.text!)!
-        calculateInterval(duration: duration, jogging: Int(intervalJogTxt.text!)!, walk: Int(intervalWalkTxt.text!)!)
-        print("")
-        for index in 0..<interval.count
-        {
-            print(String(interval[index]) + " --- " + intervalType[index])
-        }
-        
-        var bar: [UIView] = []
-        var x, width : CGFloat
-        let y: CGFloat = 0
-        let fullWidth: CGFloat = 350, fullHeight: CGFloat = 30
-        for index in 0..<interval.count
-        {
-            if index == 0
-            {
-                x = 0
-            }
-            else
-            {
-                x = bar[index-1].frame.maxX
-            }
-            
-            width = CGFloat(interval[index])/CGFloat(duration) * fullWidth
-            
-            let newBar = UIView(frame: CGRect(x: x, y: y, width: width, height: fullHeight))
-            
-            if intervalType[index] == "Walk"
-            {
-                newBar.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.2196078431, blue: 0.168627451, alpha: 1)
-            }
-            else
-            {
-                newBar.backgroundColor = #colorLiteral(red: 1, green: 0.8666666667, blue: 0.3058823529, alpha: 1)
-            }
-            
-            barView.addSubview(newBar)
-            bar.append(newBar)
-        }
         saveData()
+        performSegue(withIdentifier: "back", sender: self)
     }
 }

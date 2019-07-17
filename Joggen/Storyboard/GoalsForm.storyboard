@@ -105,6 +105,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" keyboardAppearance="light" smartDashesType="no"/>
+                                <connections>
+                                    <action selector="doneJogging:" destination="fFi-9h-fPM" eventType="valueChanged" id="rav-we-9jB"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interval Walking (minutes)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISW-Yg-G9L">
                                 <rect key="frame" x="20" y="460" width="199" height="21"/>
@@ -119,6 +122,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" keyboardAppearance="light" smartDashesType="no"/>
+                                <connections>
+                                    <action selector="doneWalking:" destination="fFi-9h-fPM" eventType="valueChanged" id="SAV-IV-VLi"/>
+                                </connections>
                             </textField>
                             <view alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qko-0c-n32">
                                 <rect key="frame" x="20" y="383" width="374" height="1"/>
@@ -126,9 +132,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esh-to-EWa">
-                                <rect key="frame" x="184" y="546" width="46" height="30"/>
+                                <rect key="frame" x="190" y="546" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="generatePressed:" destination="fFi-9h-fPM" eventType="touchUpInside" id="goT-2k-5Vd"/>
                                 </connections>
@@ -150,9 +156,11 @@
                         <outlet property="intervalJogTxt" destination="YN2-nG-nUI" id="wZp-J3-Ziq"/>
                         <outlet property="intervalWalkTxt" destination="qDP-tJ-dWh" id="27j-5B-shL"/>
                         <outlet property="sessionTxt" destination="8bX-KH-5BN" id="TKe-Tz-uV0"/>
+                        <segue destination="9V0-M4-ANq" kind="unwind" identifier="back" unwindAction="back:" id="FyN-tf-8ap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOx-PC-nE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9V0-M4-ANq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-94.20289855072464" y="-283.25892857142856"/>
         </scene>

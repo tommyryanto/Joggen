@@ -15,6 +15,11 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var statusGoal: UISegmentedControl!
     
     var week: Target?
+    var achived: [Achived]?
+    
+    @IBAction func back(_ sender: UIStoryboardSegue) {
+        
+    }
     
     @IBAction func segmentedControl(_ sender: Any) {
         filterData()
@@ -24,13 +29,14 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         let dayComp = DateComponents(day: -9)
-        let date = Calendar.current.date(byAdding: dayComp, to: Date())
+        let date = Calendar.current.date(byAdding: dayComp, to: Date())*/
         
-        DataHandler.saveTarget(date: date!, distance: 1, session_per_week: 1, duration: 1, id: 3, session_count: 3, jog_interval: 10, walk_interval: 10)
+        //DataHandler.saveTarget(date: date!, distance: 1, session_per_week: 1, duration: 1, id: 3, session_count: 3, jog_interval: 10, walk_interval: 10)
         
         /*let target = DataHandler.retrieveTarget()
         
@@ -39,6 +45,7 @@ class HistoryViewController: UIViewController {
         }*/
         
         filterData()
+        achived = DataHandler.retrieveAchived()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +109,17 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.viewBack.layer.cornerRadius = 5
         
+        var achivedTotal: Achived?
+        
+        if !achived!.isEmpty {
+            for i in 0...achived!.count - 1 {
+                if achived![i].week?.id == history.week?.id {
+                    achivedTotal = achived![i]
+                    break
+                }
+            }
+        }
+        
         var barView = cell.sessionProgress
         var percentage = CGFloat(history.session_per_week) / 3 * cell.total.frame.width
         
@@ -109,7 +127,7 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         barView!.frame.size.width = percentage
         
         //configure duration progress bar
-        percentage = CGFloat(history.duration) / 100 * cell.total.frame.width
+        percentage = CGFloat(achivedTotal.duration ?? 0) / CGFloat(history.duration) * cell.total.frame.width
         barView = cell.durationProgress
         barView!.frame = CGRect(x: (barView?.frame.origin.x)!, y: (barView?.frame.origin.y)!, width: percentage, height: barView!.frame.height)
         

@@ -17,6 +17,7 @@ var targetGoals:[WeekHistory] = [WeekHistory(session: 3, distance: 4, duration: 
 
 //var weekHistory: [WeekHistory] = [WeekHistory(session: 3, distance: 4, duration: 1, week: 2)]
 var weekHistory: [Target] = []
+var achivedHistory: [Achived] = []
 
 struct HomeMenu {
     var title: String
