@@ -121,7 +121,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="distanceProgress" destination="Ruz-Xx-U3P" id="G2x-Av-pKf"/>
-                                            <outlet property="durationProgress" destination="Ruz-Xx-U3P" id="is1-Wb-eZL"/>
+                                            <outlet property="durationProgress" destination="If7-Ol-XzX" id="2c4-2z-lhW"/>
                                             <outlet property="sessionProgress" destination="Fcr-ME-GAf" id="Hxc-9I-hAZ"/>
                                             <outlet property="total" destination="v6T-FP-jkY" id="gJi-NI-clj"/>
                                             <outlet property="viewBack" destination="i8O-Un-om7" id="xFr-sX-SUw"/>

@@ -16,9 +16,11 @@ class HistoryViewController: UIViewController {
     
     var week: Target?
     var achived: [Achived]?
+    var target: [Target]?
     
     @IBAction func back(_ sender: UIStoryboardSegue) {
-        
+        filterData()
+        historyTableView.reloadData()
     }
     
     @IBAction func segmentedControl(_ sender: Any) {
@@ -57,7 +59,7 @@ class HistoryViewController: UIViewController {
     }
     
     func filterData() {
-        let target = DataHandler.retrieveTarget()
+        target = DataHandler.retrieveTarget()
         //var filteredData: [Achived]?
         weekHistory.removeAll()
         let dayComp = DateComponents(day: -7)
@@ -105,11 +107,20 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = historyTableView.dequeueReusableCell(withIdentifier: "cell") as! WeekHistoryTableViewCell
         let history = weekHistory[indexPath.row]
-        cell.week.text = "Week \((history.week?.id)!)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let date = dateFormatter.string(from: (target?[indexPath.row].week!.date_start)!)
+        print(date)
+        
+        let dayComp = DateComponents(day: +7)
+        let dateAfter = dateFormatter.string(from: Calendar.current.date(byAdding: dayComp, to: (target?[indexPath.row].week!.date_start)!)!)
+        
+        cell.week.text = "Week \((history.week?.id)!) (\(date) - \(dateAfter))"
         
         cell.viewBack.layer.cornerRadius = 5
         
         var achivedTotal: Achived?
+        var session = 0
         
         if !achived!.isEmpty {
             for i in 0...achived!.count - 1 {
@@ -120,20 +131,28 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         
+        if !achived!.isEmpty {
+            for i in 0...achived!.count - 1 {
+                if achived![i].week?.id == history.week?.id {
+                    session += 1
+                }
+            }
+        }
+        
         var barView = cell.sessionProgress
-        var percentage = CGFloat(history.session_per_week) / 3 * cell.total.frame.width
+        var percentage = CGFloat(session) / CGFloat(history.session_per_week) * cell.total.frame.width
         
         //configure session progress bar
         barView!.frame.size.width = percentage
         
         //configure duration progress bar
-        percentage = CGFloat(achivedTotal.duration ?? 0) / CGFloat(history.duration) * cell.total.frame.width
+        percentage = CGFloat(achivedTotal?.duration ?? 0) / CGFloat(history.duration) * cell.total.frame.width
         barView = cell.durationProgress
-        barView!.frame = CGRect(x: (barView?.frame.origin.x)!, y: (barView?.frame.origin.y)!, width: percentage, height: barView!.frame.height)
+        barView!.frame.size.width = percentage
         
         //configure distance progress bar
-        barView = cell.durationProgress
-        percentage = CGFloat(history.distance) / 100 * cell.total.frame.width
+        barView = cell.distanceProgress
+        percentage = CGFloat(achivedTotal?.distance ?? 0) / CGFloat(history.distance) * cell.total.frame.width
         barView!.frame.size.width = percentage
         
         return cell

@@ -9,6 +9,7 @@
 import UIKit
 
 class WeekHistoryTableViewCell: UITableViewCell {
+    
 
     @IBOutlet weak var viewBack: UIView!
     @IBOutlet weak var total: UIView!
