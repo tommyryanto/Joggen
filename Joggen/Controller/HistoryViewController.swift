@@ -54,8 +54,6 @@ class HistoryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        
     }
     
     func filterData() {
@@ -68,7 +66,7 @@ class HistoryViewController: UIViewController {
             //ongoing
             if !target!.isEmpty {
                 for i in 0...target!.count - 1 {
-                    if (target?[i].week!.date_start)! >= date! {
+                    if (target?[i].week!.date_start)! > date! {
                         weekHistory.append(target![i])
                     }
                 }
@@ -138,6 +136,28 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             }
         }
+        
+        /*
+        let viewBorder = CAShapeLayer()
+        viewBorder.strokeColor = UIColor.black.cgColor
+        viewBorder.lineDashPattern = [2, 2]
+        viewBorder.frame = cell.total.bounds
+        viewBorder.fillColor = nil
+        viewBorder.path = UIBezierPath(rect: cell.total.bounds).cgPath
+        cell.total.layer.addSublayer(viewBorder)*/
+        
+        
+        for i in 0...2 {
+            let viewBorder = CAShapeLayer()
+            viewBorder.strokeColor = UIColor.black.cgColor
+            viewBorder.lineDashPattern = [5, 5]
+            let borderView = cell.borderView[i]
+            viewBorder.frame = borderView.bounds
+            viewBorder.fillColor = nil
+            viewBorder.path = UIBezierPath(rect: borderView.bounds).cgPath
+            borderView.layer.addSublayer(viewBorder)
+        }
+        
         
         var barView = cell.sessionProgress
         var percentage = CGFloat(session) / CGFloat(history.session_per_week) * cell.total.frame.width

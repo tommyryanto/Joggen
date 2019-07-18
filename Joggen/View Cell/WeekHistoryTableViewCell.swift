@@ -11,6 +11,7 @@ import UIKit
 class WeekHistoryTableViewCell: UITableViewCell {
     
 
+    @IBOutlet var borderView: [UIView]!
     @IBOutlet weak var viewBack: UIView!
     @IBOutlet weak var total: UIView!
     @IBOutlet weak var durationProgress: UIView!

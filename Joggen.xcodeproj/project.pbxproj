@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		165ADD2522E0191C0019BB3F /* CustomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165ADD2422E0191B0019BB3F /* CustomBar.swift */; };
 		166E2E9D22D825C2006B621C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E2E9B22D825C2006B621C /* Home.storyboard */; };
 		166E2E9F22D825FC006B621C /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166E2E9E22D825FC006B621C /* History.storyboard */; };
 		166E2EA222D8326D006B621C /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166E2EA122D8326D006B621C /* DataHandler.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		165ADD2422E0191B0019BB3F /* CustomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBar.swift; sourceTree = "<group>"; };
 		166E2E9C22D825C2006B621C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Joggen/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		166E2E9E22D825FC006B621C /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		166E2EA122D8326D006B621C /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		165ADD2322E0190F0019BB3F /* CustomBar */ = {
+			isa = PBXGroup;
+			children = (
+				165ADD2422E0191B0019BB3F /* CustomBar.swift */,
+			);
+			path = CustomBar;
+			sourceTree = "<group>";
+		};
 		166E2EA022D8260E006B621C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 		16E0B6F122D57F3D0008B224 /* Joggen */ = {
 			isa = PBXGroup;
 			children = (
+				165ADD2322E0190F0019BB3F /* CustomBar */,
 				16E0B6F222D57F3D0008B224 /* AppDelegate.swift */,
 				16E0B70E22D606CE0008B224 /* Controller */,
 				1689FD1C22DC415B0098F04C /* Model */,
@@ -217,6 +228,7 @@
 				16E0B6F322D57F3D0008B224 /* AppDelegate.swift in Sources */,
 				166E2EA222D8326D006B621C /* DataHandler.swift in Sources */,
 				166F349D22DDA3C1008D362F /* GoalsFormViewController.swift in Sources */,
+				165ADD2522E0191C0019BB3F /* CustomBar.swift in Sources */,
 				16B8A0CE22DC226A00A023A1 /* DetailHistoryViewController.swift in Sources */,
 				16B8A0D022DC22D400A023A1 /* HistoryViewController.swift in Sources */,
 				16B91D1022D788DF0054655D /* WeekHistoryTableViewCell.swift in Sources */,

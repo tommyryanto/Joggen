@@ -126,6 +126,9 @@
                                             <outlet property="total" destination="v6T-FP-jkY" id="gJi-NI-clj"/>
                                             <outlet property="viewBack" destination="i8O-Un-om7" id="xFr-sX-SUw"/>
                                             <outlet property="week" destination="RX8-Er-61d" id="r7U-um-0Nx"/>
+                                            <outletCollection property="borderView" destination="0Or-ds-Jbw" collectionClass="NSMutableArray" id="8Ve-72-HDX"/>
+                                            <outletCollection property="borderView" destination="v6T-FP-jkY" collectionClass="NSMutableArray" id="Jho-bl-C7Q"/>
+                                            <outletCollection property="borderView" destination="gEy-iq-Edt" collectionClass="NSMutableArray" id="lch-3J-lkI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
