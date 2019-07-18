@@ -48,6 +48,9 @@ class HistoryViewController: UIViewController {
         
         filterData()
         achived = DataHandler.retrieveAchived()
+        for i in weekHistory {
+            print(i.week?.date_start)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,7 +110,7 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         let history = weekHistory[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        let date = dateFormatter.string(from: (target?[indexPath.row].week!.date_start)!)
+        let date = dateFormatter.string(from: (history.week!.date_start)!)
         print(date)
         
         let dayComp = DateComponents(day: +7)
@@ -148,13 +151,18 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         
         
         for i in 0...2 {
-            let viewBorder = CAShapeLayer()
-            viewBorder.strokeColor = UIColor.black.cgColor
-            viewBorder.lineDashPattern = [5, 5]
             let borderView = cell.borderView[i]
-            viewBorder.frame = borderView.bounds
-            viewBorder.fillColor = nil
-            viewBorder.path = UIBezierPath(rect: borderView.bounds).cgPath
+            
+            let viewBorder: CAShapeLayer = {
+                let border = CAShapeLayer()
+                border.strokeColor = UIColor.black.cgColor
+                border.lineDashPattern = [5, 5]
+                border.frame = borderView.bounds
+                border.fillColor = nil
+                border.path = UIBezierPath(rect: borderView.bounds).cgPath
+                return border
+            }()
+            
             borderView.layer.addSublayer(viewBorder)
         }
         

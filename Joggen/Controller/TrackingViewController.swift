@@ -22,21 +22,25 @@ class TrackingViewController: UIViewController {
     /* HERE */
     //var week = weekHistory[0]
     
-    // MARK: - DUMMY
-    
-    var desiredDuration: Float = 0.0
-    var desiredDistance: Float = 0.0
-    
-    
     // Taking model's data as a base for timer
     // **************
     
-    // Timer
-    var timer = Timer()
-    var counter: Int = 0
-    var isTimerRunning = false
+    // MARK: - Goals
+    var desiredDuration: Float = 0.0
+    var desiredDistance: Float = 0.0
     
+    // Timer & Stopwatch
+    var timer = Timer()
+    var stopwatch = Timer()
+    var counter: Int = 0
+    var stopwatchCounter = 0
+    var isTimerRunning = false
+    var isStopwatchRunning = false
+    var isPaused = false
+    ////////////////////////////////////////
     var tempSecond = 0.0
+    var tempStopwatch = 0.0
+    
     
     // Creating circle for the Timer progress bar
     let shapeLayer = CAShapeLayer()
@@ -61,25 +65,22 @@ class TrackingViewController: UIViewController {
         var desiredTarget = targetGoals[0]
         
         desiredDuration = desiredTarget.duration
-        counter = Int(desiredDuration * 60)
         desiredDistance = desiredTarget.distance
         
-        let desiredMinutes = counter / 60
-        var desiredMinuteString = "\(desiredMinutes)"
-        if desiredMinutes < 10 {
-            desiredMinuteString = "0\(desiredMinutes)"
-        }
+        // Time counter for timer
+        counter = Int(desiredDuration * 60)
         
-        let desiredSeconds = counter % 60
-        var desiredSecondString = "\(desiredSeconds)"
-        if desiredSeconds < 10{
-            desiredSecondString = "0\(desiredSeconds)"
-        }
+        let desiredGoalString = alterMinuteSeconds(counterNum: counter)
+        
+        let desiredMinuteString = desiredGoalString[0]
+        let desiredSecondString = desiredGoalString[1]
         
         timerLabel.text = "\(desiredMinuteString):\(desiredSecondString)"
+        timeSpentLabel.text = "00:00"
         
         //countdownTimer()
         startTimer()
+        startStopwatch()
         buildUI()
     }
     
@@ -92,35 +93,29 @@ class TrackingViewController: UIViewController {
     }
     
     @IBAction func pauseButtonTapped(_ sender: Any) {
-        let mediaTime = CACurrentMediaTime()
-        let pausedTime = CFTimeInterval(mediaTime)
+        stopButton.isEnabled = false
         
         if isTimerRunning {
-            timer.invalidate()
+            pauseTimer()
+            pauseStopwatch()
             
-            let pausedTime = shapeLayer.convertTime(CACurrentMediaTime(), from: nil)
-            shapeLayer.speed = 0.0
-            shapeLayer.timeOffset = pausedTime
-            
-            pauseButton.titleLabel?.text = "Resume"
-            isTimerRunning = false
+            pauseButton.setTitle("Resume", for: .normal)
         }
         else {
-            let pausedTime = shapeLayer.timeOffset
-            shapeLayer.speed = 1.0
-            shapeLayer.timeOffset = 0.0
-            shapeLayer.beginTime = 0.0
-            let timeSincePause = shapeLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-            shapeLayer.beginTime = timeSincePause
+            resumeAnimation()
+            stopButton.isEnabled = true
             
-            pauseButton.titleLabel?.text = "Pause"
+            pauseButton.setTitle("Pause", for: .normal)
             startTimer()
-            isTimerRunning = true
+            startStopwatch()
         }
     }
     
     @IBAction func stopButtonTapped(_ sender: Any) {
-        stopTimer()
+        pauseTimer()
+        pauseStopwatch()
+        isPaused = false
+        showStopAlert()
     }
     
     
@@ -234,29 +229,25 @@ extension TrackingViewController {
         if !isTimerRunning {
             timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)
             isTimerRunning = true
+            isPaused = false
         }
         
     }
     
     @objc func runTimer() {
         tempSecond += 0.05
-        print(tempSecond)
-        if tempSecond >= 1 {
+        //print(tempSecond)
+        
+        if tempSecond >= 0.996 && isTimerRunning {
             counter -= 1
             
             // MM::SS
             let flooredCounter = Int(floor(CGFloat(counter)))
-            let minute = flooredCounter / 60
-            var minuteString = "\(minute)"
-            if minute < 10 {
-                minuteString = "0\(minute)"
-            }
             
-            let seconds = flooredCounter % 60
-            var secondString = "\(seconds)"
-            if seconds < 10 {
-                secondString = "0\(seconds)"
-            }
+            let currString = alterMinuteSeconds(counterNum: flooredCounter)
+            
+            let minuteString = currString[0]
+            let secondString = currString[1]
             
             timerLabel.text = "\(minuteString):\(secondString)"
             
@@ -268,14 +259,148 @@ extension TrackingViewController {
         }
     }
     
-    func stopTimer() {
+    func pauseTimer() {
         timer.invalidate()
+        isPaused = true
+        
+        let pausedTime = shapeLayer.convertTime(CACurrentMediaTime(), from: nil)
+        shapeLayer.speed = 0.0
+        shapeLayer.timeOffset = pausedTime
+        
+        isTimerRunning = false
+    }
+    
+    func resumeAnimation() {
+        let pausedTime = shapeLayer.timeOffset
+        shapeLayer.speed = 1.0
+        shapeLayer.timeOffset = 0.0
+        shapeLayer.beginTime = 0.0
+        let timeSincePause = shapeLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        shapeLayer.beginTime = timeSincePause
+    }
+    
+    func stopTimer() {
+        if isTimerRunning {
+            timer.invalidate()
+            stopwatch.invalidate()
+        }
         
         pauseButton.isEnabled = false
         stopButton.isEnabled = false
         
         isTimerRunning = false
     }
+}
+
+// STOPWATCH & DISTANCE
+extension TrackingViewController {
+    func startStopwatch() {
+        if !isStopwatchRunning {
+            print("A")
+            stopwatch = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(runStopwatch), userInfo: nil, repeats: true)
+            isTimerRunning = true
+            isPaused = false
+        }
+        
+    }
     
+    @objc func runStopwatch() {
+        tempStopwatch += 0.05
+        //print(tempSecond)
+        
+        if tempStopwatch >= 0.996 {
+            stopwatchCounter += 1
+            
+            // MM::SS
+            let flooredCounter = Int(floor(CGFloat(stopwatchCounter)))
+            
+            let currString = alterMinuteSeconds(counterNum: flooredCounter)
+            
+            let minuteString = currString[0]
+            let secondString = currString[1]
+            
+            
+            timeSpentLabel.text = "\(minuteString):\(secondString)"
+            
+            tempStopwatch = 0.0
+            
+            if stopwatchCounter == 0 {
+                stopStopwatch()
+            }
+        }
+    }
+    
+    func pauseStopwatch() {
+        stopwatch.invalidate()
+        isPaused = true
+    }
+    
+    func stopStopwatch() {
+        
+        if isStopwatchRunning {
+            stopwatch.invalidate()
+        }
+        
+        isStopwatchRunning = false
+    }
+}
+
+
+
+// ALERT & UTILITY
+extension TrackingViewController {
+    
+    func showStopAlert() {
+        let minutesLeft = timerLabel.text?.prefix(2)
+        let secondsLeft = timerLabel.text?.suffix(2)
+        
+        var alertMsg = ""
+        if minutesLeft != "00" {
+            alertMsg = "You still have \(minutesLeft!) minutes \(secondsLeft!) seconds left to go"
+        }
+        else if minutesLeft != "00" && secondsLeft == "00"{
+            alertMsg = "You still have \(minutesLeft!) minutes left to go"
+        }
+        else {
+            alertMsg = "You still have \(secondsLeft!) seconds left to go"
+        }
+        
+        let stopAlert = UIAlertController(title: "Are you sure you want to stop?", message: alertMsg, preferredStyle: .alert)
+        
+        
+        stopAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            self.resumeAnimation()
+            self.stopTimer()
+            self.stopStopwatch()
+            self.animateBar(duration: 0.75)
+        }))
+        
+        stopAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
+            if !self.isPaused {
+                self.startTimer()
+                self.startStopwatch()
+                self.resumeAnimation()
+            }
+        }))
+        
+        self.present(stopAlert, animated: true)
+    }
+    
+    func alterMinuteSeconds(counterNum: Int) -> [String] {
+        
+        let totalMinutes = counterNum / 60
+        var totalMinuteString = "\(totalMinutes)"
+        if totalMinutes < 10 {
+            totalMinuteString = "0\(totalMinutes)"
+        }
+        
+        let totalSeconds = counterNum % 60
+        var totalSecondString = "\(totalSeconds)"
+        if totalSeconds < 10{
+            totalSecondString = "0\(totalSeconds)"
+        }
+        
+        return [totalMinuteString, totalSecondString]
+    }
     
 }

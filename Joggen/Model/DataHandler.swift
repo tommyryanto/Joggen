@@ -11,7 +11,7 @@ import CoreData
 
 class DataHandler {
     
-    private class func getContext() -> NSManagedObjectContext {
+    class func getContext() -> NSManagedObjectContext {
         let appDel = UIApplication.shared.delegate as! AppDelegate
         
         return appDel.persistentContainer.viewContext
