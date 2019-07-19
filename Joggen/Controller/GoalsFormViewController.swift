@@ -288,4 +288,10 @@ class GoalsFormViewController: UIViewController {
         }
 
 
+    @IBAction func dateEditStarted(_ sender: UITextField) {
+        let dateNow = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateTxt.text = dateFormatter.string(from: dateNow)
+    }
 }

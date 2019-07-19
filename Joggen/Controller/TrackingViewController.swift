@@ -58,9 +58,15 @@ class TrackingViewController: UIViewController {
     var walk_interval: Int32?
     var session_count: Int32?
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //saveMotionData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //saveDummyData()
         /* INI DUMMY, NTAR PAKE MODEL YANG BENER */
         var desiredTarget = targetGoals[0]
         

@@ -9,9 +9,7 @@
 import Foundation
 
 
-let menuData: [HomeMenu] = [HomeMenu(title: "Total Duration", record: 10, total: "90", min: true), HomeMenu(title: "Session", record: 1, total: "3x", min: false),
-HomeMenu(title: "Jogging", record: 5, total: "10", min: true),
-HomeMenu(title: "Walking", record: 5, total: "5", min: true)]
+var menuData: [HomeMenu] = []
 
 var targetGoals:[WeekHistory] = [WeekHistory(session: 3, distance: 4, duration: 1, week: 2), WeekHistory(session: 2, distance: 3, duration: 20, week: 1)]
 
@@ -21,10 +19,10 @@ var achivedHistory: [Achived] = []
 
 struct HomeMenu {
     var title: String
-    var record: Int
+    var record: Int32
     var total: String
     var min: Bool
-    init(title: String, record: Int, total: String, min: Bool) {
+    init(title: String, record: Int32, total: String, min: Bool) {
         self.title = title
         self.record = record
         self.total = total
@@ -36,9 +34,9 @@ struct WeekHistory {
     var session: Int
     var distance: Float
     var duration: Float
-    var week: Int
+    var week: Int16
     
-    init(session: Int, distance: Float, duration: Float, week: Int) {
+    init(session: Int, distance: Float, duration: Float, week: Int16) {
         self.session = session
         self.distance = distance
         self.duration = duration
