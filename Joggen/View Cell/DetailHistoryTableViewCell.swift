@@ -15,7 +15,7 @@ class DetailHistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var duration: UILabel!
     @IBOutlet weak var walkInterval: UILabel!
     @IBOutlet weak var jogInterval: UILabel!
-    @IBOutlet weak var calories: UILabel!
+    //@IBOutlet weak var calories: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

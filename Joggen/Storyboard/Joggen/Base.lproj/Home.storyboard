@@ -131,6 +131,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Week" largeTitleDisplayMode="always" id="GeA-8d-yua"/>
                     <connections>
+                        <outlet property="collectionView" destination="SyC-bp-bYu" id="D9K-UA-D13"/>
                         <outlet property="homeNavigationBar" destination="GeA-8d-yua" id="eQU-lf-FDD"/>
                         <outlet property="startButton" destination="pzJ-D0-rrz" id="UdN-Th-v1Z"/>
                         <segue destination="Jpo-py-9yz" kind="show" identifier="goToTracking" id="rV8-pq-PdE"/>
@@ -140,11 +141,11 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="126.5625"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="mrm-Xn-lXr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pmw-jz-Yx5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="1Ul-oA-Eha"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="1Ul-oA-Eha"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2BN-hN-7xT">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -268,4 +269,7 @@
             <point key="canvasLocation" x="3471" y="127"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="32" height="32"/>
+    </resources>
 </document>

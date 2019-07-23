@@ -57,19 +57,29 @@ extension DetailHistoryViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 190
+        return 170
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DetailHistoryTableViewCell
         
         let data = showData[indexPath.row]
-        cell.date.text = "\((data.week?.date_start)!    )"
-        cell.distance.text = "\(data.distance) km"
-        cell.duration.text = "\(data.duration) minutes"
+        //let date = data.week?.date_start
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let convertedDate = dateFormatter.string(from: (data.week?.date_start)!)
+        cell.date.text = "\(convertedDate)"
+        cell.distance.text = "\(data.distance) m"
+        
+        if data.duration / 60 >= 1{
+            cell.duration.text = "\(data.duration/60) minutes"
+        } else {
+            cell.duration.text = "\(data.duration) seconds"
+        }
+        
         cell.walkInterval.text = "\(data.walk_interval) minutes"
         cell.jogInterval.text = "\(data.jog_interval) minutes"
-        cell.calories.text = "\(data.calories)"
+        //cell.calories.text = "\(data.calories)"
         
         return cell
     }

@@ -46,15 +46,17 @@ class HistoryViewController: UIViewController {
             weekHistory.append(target![i])
         }*/
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         filterData()
         achived = DataHandler.retrieveAchived()
         for i in weekHistory {
             print(i.week?.date_start)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
