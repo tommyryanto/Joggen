@@ -66,7 +66,7 @@ extension DetailHistoryViewController: UITableViewDelegate, UITableViewDataSourc
         let data = showData[indexPath.row]
         //let date = data.week?.date_start
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "dd MMMM yyyy hh:mm"
         let convertedDate = dateFormatter.string(from: (data.week?.date_start)!)
         cell.date.text = "\(convertedDate)"
         cell.distance.text = "\(data.distance) m"

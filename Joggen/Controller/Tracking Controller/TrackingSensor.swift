@@ -44,7 +44,9 @@ extension TrackingViewController {
                 if let data = pedometerData {
                     print(data.numberOfSteps)
                     self.distance = data.distance?.floatValue
-                    self.distanceLabel.text = "\(self.distance!)"
+                    DispatchQueue.main.async {
+                        self.distanceLabel.text = "\(self.distance!)"
+                    }
                 } else {
                     print((error?.localizedDescription)!)
                 }

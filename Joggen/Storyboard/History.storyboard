@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jnC-8N-f8W">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jnC-8N-f8W">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -144,7 +142,9 @@
                                     <constraint firstAttribute="width" constant="79" id="DVU-aN-P5K"/>
                                     <constraint firstAttribute="height" constant="61" id="p9r-J0-6hn"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="add button"/>
+                                <state key="normal" title="Button" image="add button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="6zA-Se-wQF" kind="show" id="Zjc-um-ZcZ"/>
                                 </connections>
@@ -161,14 +161,13 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ibV-Wj-t4t" firstAttribute="centerX" secondItem="3Fq-1J-xMy" secondAttribute="centerX" id="Q5d-JY-U9S"/>
                             <constraint firstItem="8xG-88-waX" firstAttribute="bottom" secondItem="ibV-Wj-t4t" secondAttribute="bottom" constant="28" id="xiV-Ju-beN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8xG-88-waX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="History Goals" id="nqD-ls-PfD"/>
+                    <navigationItem key="navigationItem" title="History Goals" largeTitleDisplayMode="never" id="nqD-ls-PfD"/>
                     <connections>
                         <outlet property="historyTableView" destination="ptc-Zw-kfq" id="8cf-Vk-f6N"/>
                         <outlet property="statusGoal" destination="ZhD-c3-g2K" id="eq5-JR-ula"/>
@@ -195,7 +194,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="169"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="55f-56-G5i" id="8mE-Gq-pTF">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="168.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-Lk-paB">

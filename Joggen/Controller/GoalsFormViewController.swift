@@ -77,8 +77,8 @@ class GoalsFormViewController: UIViewController {
         
         let dayComp = DateComponents(day: +7)
         
-        var date = Calendar.current.date(byAdding: dayComp, to: Date())!
-        var week: Int = 1
+        var date = UserDefaults.standard.value(forKey: "launched") as! Date
+        var week: Int = 0
         
         while dateGoal! > date {
             week += 1

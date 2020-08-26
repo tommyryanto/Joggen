@@ -172,6 +172,7 @@ extension TrackingViewController {
             // Checking whether the session has ended or not
             if counter == 0 && counterInterval < interval.count-1 {
                 stopTimer()
+                saveMotionData()
                 counterInterval += 1
                 isTimerFinished = true
                 counter = interval[counterInterval] * 60
@@ -209,6 +210,8 @@ extension TrackingViewController {
         stopButton.isEnabled = false
         
         isTimerRunning = false
+
+        saveMotionData()
     }
 }
 

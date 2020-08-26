@@ -17,19 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //first time launch
         if UserDefaults.standard.value(forKey: "launched") == nil {
             UserDefaults.standard.set(Date(), forKey: "launched")
             UserDefaults.standard.set(1, forKey: "week")
-        } else {
+        } else { //next time launch
             let dayComp = DateComponents(day: +7)
             
-            let date = Calendar.current.date(byAdding: dayComp, to: UserDefaults.standard.value(forKey: "launched") as! Date)!
+            /*let date = Calendar.current.date(byAdding: dayComp, to: UserDefaults.standard.value(forKey: "launched") as! Date)!
                 
             if Date() > date {
                 UserDefaults.standard.set(date, forKey: "launched")
                 UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "week") + 1, forKey: "week")
+            }*/
+            var week = 0
+            var firstLaunchDate =  UserDefaults.standard.value(forKey: "launched") as! Date
+            print("first launched: \(firstLaunchDate)")
+            let currentDate = Date()
+            while currentDate > firstLaunchDate {
+                week += 1
+                firstLaunchDate = Calendar.current.date(byAdding: dayComp, to: firstLaunchDate)!
             }
-            
+            UserDefaults.standard.set(week, forKey: "week")
         }
         
         return true

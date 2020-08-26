@@ -107,11 +107,15 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         return 210
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = historyTableView.dequeueReusableCell(withIdentifier: "cell") as! WeekHistoryTableViewCell
         let history = weekHistory[indexPath.row]
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "dd MMMM yyyy"
         let date = dateFormatter.string(from: (history.week!.date_start)!)
         print(date)
         
